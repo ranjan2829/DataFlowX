@@ -1,0 +1,28 @@
+# docker-compose.yml
+version: '3'
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    ports:
+      - "9092:9092"
+    depends_on: [zookeeper]
+    environment:
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+  flink:
+    image: flink:latest
+    ports:
+      - "8081:8081"
+    depends_on: [kafka]
+  spark:
+    image: bitnami/spark:latest
+    ports:
+      - "4040:4040"
+  cassandra:
+    image: cassandra:latest
+    ports:
+      - "9042:9042"
