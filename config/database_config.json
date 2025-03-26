@@ -1,0 +1,7 @@
+{
+  "dbname": "dataflowx",
+  "user": "dataflowx",
+  "password": "dataflowx",
+  "host": "localhost",
+  "port": 5432
+}

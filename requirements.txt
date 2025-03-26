@@ -1,0 +1,19 @@
+# Data processing and manipulation
+pandas==2.0.3
+numpy==1.24.4
+
+# Database connections
+psycopg2-binary==2.9.6
+redis==4.6.0
+boto3==1.28.15
+
+# Streaming
+kafka-python==2.0.2
+
+# ML and AI
+tensorflow==2.12.0
+scikit-learn==1.3.0
+
+# Utilities
+python-dotenv==1.0.0
+pyyaml==6.0.1

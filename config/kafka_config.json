@@ -1,0 +1,5 @@
+{
+  "bootstrap_servers": "localhost:9092",
+  "consumer_group": "dataflowx-group",
+  "auto_offset_reset": "earliest"
+}
