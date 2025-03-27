@@ -72,18 +72,6 @@ class DataCleaner:
                     elif transform == "strip":
                         df[col] = df[col].str.strip()
         
-        # Outlier handling
-        if "outlier_handling" in config:
-            for col, strategy in config["outlier_handling"].items():
-                if col in df.columns and df[col].dtype in [np.float64, np.int64]:
-                    if strategy == "clip":
-                        q1 = df[col].quantile(0.25)
-                        q3 = df[col].quantile(0.75)
-                        iqr = q3 - q1
-                        lower_bound = q1 - 1.5 * iqr
-                        upper_bound = q3 + 1.5 * iqr
-                        df[col] = df[col].clip(lower_bound, upper_bound)
-        
         new_shape = df.shape
         rows_removed = original_shape[0] - new_shape[0]
         self.logger.info(f"Data cleaning complete. Removed {rows_removed} rows. New shape: {new_shape}")

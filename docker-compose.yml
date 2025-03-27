@@ -26,7 +26,10 @@ services:
     environment:
       KAFKA_ADVERTISED_HOST_NAME: localhost
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_CREATE_TOPICS: "ecommerce-stream:1:1,user-events:1:1,processed-events:1:1"
+      KAFKA_CREATE_TOPICS: "ecommerce-stream:1:1,processed-events:1:1"
+      KAFKA_BOOTSTRAP_SERVERS: "localhost:9092"
+      KAFKA_CONSUMER_GROUP: "dataflowx-group"
+      KAFKA_AUTO_OFFSET_RESET: "earliest"
     depends_on:
       - zookeeper
 
@@ -79,3 +82,11 @@ services:
 volumes:
   postgres_data:
   minio_data:
+
+# DataFlowX
+
+A streamlined data pipeline for ingestion, processing, and streaming with visualization.
+
+## Architecture
+
+DataFlowX implements a modern data pipeline architecture:
